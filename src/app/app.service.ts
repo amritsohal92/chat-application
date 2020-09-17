@@ -21,6 +21,14 @@ export class AppService {
 
   }
 
+  public getUserInformationFromLocalStorage = () => {
+    return JSON.parse(localStorage.getItem('userInfo'));
+  }// end function
+
+  public setUserInformationInLocalStorage = (data) => {
+    localStorage.setItem('userInfo', JSON.stringify(data));
+  }// end function
+
   public signUpFunction(data): Observable<any> {  //preferred way to send body parameters using HttpParams
     const params = new HttpParams()
       .set('firstName', data.firstName)
@@ -33,7 +41,7 @@ export class AppService {
     return this.http.post(`${this.url}/api/v1/users/signup`, params);
   }// end signUpFunction function
 
-  public signInFunction(data): Observable<any> {
+  public signinFunction(data): Observable<any> {
     const params = new HttpParams()
       .set('email', data.email)
       .set('password', data.password);
@@ -41,10 +49,10 @@ export class AppService {
     return this.http.post(`${this.url}/api/v1/users/login`, params);
   }// end signINFunction function
 
-  private handleError(err: HttpErrorResponse){
+  private handleError(err: HttpErrorResponse) {
     let errMessage = '';
 
-    
+
   }
 
 }
