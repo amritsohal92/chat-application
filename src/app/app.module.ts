@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 //routing
 import { AppComponent } from './app.component';
@@ -14,6 +16,8 @@ import { LoginComponent } from './user/login/login.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     ChatModule,
     UserModule,
     RouterModule.forRoot([
